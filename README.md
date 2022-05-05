@@ -12,9 +12,9 @@ Este é o teste que nós, aqui da Yampi, usamos para avaliar tecnicamente todas 
 ### Configuração do ambiente
 ***
 
-**Para Configuração do ambiente é necessário ter o Docker instalado na máquina.**
+**Para configuração do ambiente é necessário ter o Docker instalado na máquina.**
 
-Dentro da pasta do projeto rode o seguinte comando: `docker-composer up -d`.
+Dentro da pasta do projeto rode o seguinte comando: `docker-compose up -d`.
 
 Criar o arquivo `.env` baseado no arquivo `.env.example`.
 
