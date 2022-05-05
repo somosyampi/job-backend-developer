@@ -14,11 +14,13 @@ Este é o teste que nós, aqui da Yampi, usamos para avaliar tecnicamente todas 
 
 **Para Configuração do ambiente é necessário ter o Docker instalado na máquina.**
 
-Dentro da pasta do projeto rode o seguinte comando: `docker-composer up -d`
+Dentro da pasta do projeto rode o seguinte comando: `docker-composer up -d`.
 
-Após rodar o comando será necessário acessar o container da aplicação para rodar alguns comandos de configuração do Laravel.
+Criar o arquivo `.env` baseado no arquivo `.env.example`.
 
-Para acessar o container use o comando `docker exec -it yampi_test_app sh`
+Após criar o arquivo `.env` será necessário acessar o container da aplicação para rodar alguns comandos de configuração do Laravel.
+
+Para acessar o container use o comando `docker exec -it yampi_test_app sh`.
 
 Após acessar o cotainer será necessário rodar os seguintes comandos:
 
@@ -66,7 +68,7 @@ Os endpoints de criação e atualização devem seguir o seguinte formato de pay
 
 Para realizar a manutenção de um catálogo de produtos é necessário que o sistema tenha algumas buscas, sendo elas:
 
-- Busca pelo campo name e category (trazer resultados que batem com ambos os campos).
+- Busca pelos campos name e category (trazer resultados que batem com ambos os campos).
 - Busca por categoria.
 - Busca de produtos com e sem imagem.
 - Buscar um produto pelo seu ID único.
