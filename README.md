@@ -101,6 +101,8 @@ Esse comando deverá ter uma opção de importar um único produto da API extern
 
 Sugestão: `php artisan products:import --id=123`
 
+Utilize a seguinte API para importar os produtos: `https://fakestoreapi.com/docs`
+
 ---
 
 Se houver dúvidas, por favor, abra uma issue nesse repositório. Ficaremos felizes em ajudá-lo ou até mesmo melhorar essa documentação.
