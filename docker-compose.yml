@@ -1,0 +1,48 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: ./Docker/php/8.0
+    container_name: yampi_test_app
+    extra_hosts:
+        - "host.docker.internal:host-gateway"
+    image: somosyampi/php:8.0
+    init: true
+    volumes:
+        - .:/app:delegated
+    networks:
+        - yampi
+
+  nginx:
+    build:
+      context: ../yoda/http
+    image: somosyampi/http
+    ports:
+        - 8000:80
+    volumes:
+        - .:/app:delegated
+    environment:
+      FPM_HOST: app
+    networks:
+        - yampi
+    depends_on:
+        - app
+
+  db:
+    image: mariadb:10.2
+    container_name: yampi_test_db
+    volumes:
+        - ./mysql/data:/var/lib/mysql:${VOLUME_ATR:-delegated}
+    restart: always
+    ports:
+        - 3306:3306
+    environment:
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: yampi
+    networks:
+        - yampi
+
+networks:
+  yampi:
+    name: yampi
