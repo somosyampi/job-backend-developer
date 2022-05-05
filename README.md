@@ -30,9 +30,12 @@ Após acessar o cotainer será necessário rodar os seguintes comandos:
 
 Após rodar esses comandos seu ambiente estara pronto para começar o teste.
 
+Para acessar a aplicação urilize a url: `localhost:8000`
 
 ### Funcionalidades a serem implementadas
 ***
+
+Para o teste é necessário desenvolver uma **API** seguindo o padrão **REST**.
 
 O sistema terá a função de gerenciar os produtos de um loja virtual, desta forma será necessário que o sitema tenha as seguintes funcionalidades:
 
