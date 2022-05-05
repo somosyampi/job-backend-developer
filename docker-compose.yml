@@ -14,7 +14,7 @@ services:
 
   nginx:
     build:
-      context: ../yoda/http
+      context: ./Docker/nginx
     image: somosyampi/http
     ports:
         - 8000:80
