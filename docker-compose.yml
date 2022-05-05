@@ -5,8 +5,6 @@ services:
     build:
       context: ./Docker/php/8.0
     container_name: yampi_test_app
-    extra_hosts:
-        - "host.docker.internal:host-gateway"
     image: somosyampi/php:8.0
     init: true
     volumes:

@@ -24,6 +24,7 @@ Para acessar o container use o comando `docker exec -it yampi_test_app sh`.
 
 Após acessar o cotainer será necessário rodar os seguintes comandos:
 
+- `composer install`
 - `php artisan key:generate`
 - `php artisan migrate`
 
