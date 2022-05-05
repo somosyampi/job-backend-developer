@@ -93,9 +93,15 @@ Para realizar a manutenção de um catálogo de produtos é necessário que o si
 
 ##### Importação de produtos de uma API externa
 
-É importante que o sistema seja capaz de importar produtos que estão em um outro serviço. Deverá ser criado um comando que importará estes produtos para a base local da aplicação. Sugestão: `php artisan products:import`
+É necessário que o sistema seja capaz de importar produtos que estão em um outro serviço. Deverá ser criado um comando que buscará produtos nessa API e armazenará os resultados para a sua base de dados. 
 
-Utilizar a seguinte API para importação dos produtos: `https://fakestoreapi.com/docs`
+Sugestão: `php artisan products:import`
+
+Esse comando deverá ter uma opção de importar um único produto da API externa, que será encontrado através de um ID externo.
+
+Sugestão: `php artisan products:import --id=123`
+
+---
 
 Se houver dúvidas, por favor, abra uma issue nesse repositório. Ficaremos felizes em ajudá-lo ou até mesmo melhorar essa documentação.
 
