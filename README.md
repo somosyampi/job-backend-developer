@@ -1,47 +1,58 @@
-<p align="center"><a href="https://yampi.com.br" target="_blank"><img src="https://icons.yampi.me/svg/brand-yampi.svg" width="400"></a></p>
+<p align="center"><a href="https://yampi.com.br" target="_blank"><img src="https://icons.yampi.me/svg/brand-yampi.svg" width="200"></a></p>
 
 # Teste prático para Back-End Developer
 ***
 
-Boas vindas pessoa desenvolvedora.
+Bem-vinda, pessoa desenvolvedora.
 
-Este é o teste que nós, aqui da Yampi, usamos para avaliar tecnicamente todas as pessoas que estão participando do processo seletivo para a vaga de Back-End.
+Este é o teste que nós, aqui da Yampi, usamos para avaliar tecnicamente todas as pessoas que estão participando do nosso processo seletivo para a vaga de desenvolvimento Back-End.
+
+## TL;DR
+
+- Você deverá criar um CRUD através de uma API REST com Laravel;
+- Você deverá criar um comando artisan que se comunicará com uma outra API para importar em seu banco de dados;
+
+## Começando
 
 **Faça um fork desse projeto para iniciar o desenvolvimento. PRs não serão aceitos.**
 
 ### Configuração do ambiente
 ***
 
-**Para configuração do ambiente é necessário ter o Docker instalado na máquina.**
+**Para configuração do ambiente é necessário ter o [Docker](https://docs.docker.com/desktop/) instalado em sua máquina.**
 
-Dentro da pasta do projeto rode o seguinte comando: `docker-compose up -d`.
+Dentro da pasta do projeto, rode o seguinte comando: `docker-compose up -d`.
 
-Criar o arquivo `.env` baseado no arquivo `.env.example`.
+Copie o arquivo `.env.example` a renomeie para `.env` dentro da pasta raíz da aplicação.
 
-Após criar o arquivo `.env` será necessário acessar o container da aplicação para rodar alguns comandos de configuração do Laravel.
+```bash
+cp .env.example .env
+```
+
+Após criar o arquivo `.env`, será necessário acessar o container da aplicação para rodar alguns comandos de configuração do Laravel.
 
 Para acessar o container use o comando `docker exec -it yampi_test_app sh`.
 
-Após acessar o cotainer será necessário rodar os seguintes comandos:
+Digite os seguintes comandos dentro do container:
 
-- `composer install`
-- `php artisan key:generate`
-- `php artisan migrate`
+```bash
+composer install
+php artisan key:generate
+php artisan migrate
+```
 
-Após rodar esses comandos seu ambiente estara pronto para começar o teste.
+Após rodar esses comandos, seu ambiente estará pronto para começar o teste.
 
-Para acessar a aplicação urilize a url: `localhost:8000`
+Para acessar a aplicação, basta acessar `localhost:8000`
 
 ### Funcionalidades a serem implementadas
-***
 
-Para o teste é necessário desenvolver uma **API** seguindo o padrão **REST**.
-
-O sistema terá a função de gerenciar os produtos de um loja virtual, desta forma será necessário que o sitema tenha as seguintes funcionalidades:
+**Essa aplicação deverá se comportar como uma API REST, onde será consumida por outros sistemas. Nesse teste você deverá se preocupar em constriuir somente a API**. 
 
 ##### CRUD produtos
 
-O sistema deverá realizar as principais operações para o gerenciamento de um catálogo de produtos, sendo elas:
+Aqui você deverá desenvolver as principais operações para o gerenciamento de um catálogo de produtos, sendo elas:
+
 - Criação
 - Atualização
 - Exclusão
@@ -58,7 +69,8 @@ category    | string    | true          | true
 image_url   | url       | false         | true
 
 Os endpoints de criação e atualização devem seguir o seguinte formato de payload:
-~~~javascript
+
+```json
 {
     "name": "product name",
     "price": 109.95,
@@ -66,23 +78,24 @@ Os endpoints de criação e atualização devem seguir o seguinte formato de pay
     "category": "test",
     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
 }
-~~~
+```
+
+**Importante:** Tanto os endpoints de criação é atualização, deverão ter uma camada de validação dos campos.
 
 ##### Buscas de produtos
 
 Para realizar a manutenção de um catálogo de produtos é necessário que o sistema tenha algumas buscas, sendo elas:
 
-- Busca pelos campos name e category (trazer resultados que batem com ambos os campos).
-- Busca por categoria.
+- Busca pelos campos `name` e `category` (trazer resultados que batem com ambos os campos).
+- Busca por uma categoria específica.
 - Busca de produtos com e sem imagem.
 - Buscar um produto pelo seu ID único.
 
 ##### Importação de produtos de uma API externa
 
-Para agilizar o aumento do catálogo de produtos é importante que o sistema seja capaz de importar produtos já cadastrados em outro serviço, sendo assim o sistema deverá ter as seguintes funcionalidades:
-
-- Rota para a importação de um produto, ex: `./products/import/{id}`
-- Comando artisan para efetuar a importação, ex: `php artisan products:import {id}`
+É importante que o sistema seja capaz de importar produtos que estão em um outro serviço. Deverá ser criado um comando que importará estes produtos para a base local da aplicação. Sugestão: `php artisan products:import`
 
 Utilizar a seguinte API para importação dos produtos: `https://fakestoreapi.com/docs`
+
+Se houver dúvidas, por favor, abra uma issue nesse repositório. Ficaremos felizes em ajudá-lo ou até mesmo melhorar essa documentação.
 
