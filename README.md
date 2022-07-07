@@ -4,6 +4,18 @@
 
 ## Checklist
 - [x] Fork no projeto
-- [x] Docker compose
+- [x] Configurar o docker
+- [x] Rodar comandos no container
 - [x] Remover rota web e welcome page
-- [ ] Criar migrations 
+- [x] Criar Migration e Model do produto
+- [x] Renomear a coluna de descrição do produto, pois copiei do readme e esta escrito 'de~~s~~cription'
+- [ ] Criar comando Artisan para importar produtos `php artisan products:import`
+- [ ] Importar produtos
+- [ ] Criar produtos
+- [ ] Ler produtos
+- [ ] Atualizar produtos
+- [ ] Deletar produtos
+- [ ] Busca pelos campos name e category (trazer resultados que batem com ambos os campos)
+- [ ] Busca por uma categoria específica
+- [ ] Busca de produtos com e sem imagem
+- [ ] Buscar um produto pelo seu ID único
