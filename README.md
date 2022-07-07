@@ -61,7 +61,13 @@
     php artisan products:import --id=11
     ```
 
-7.  Busca pelos campos **name** e category: 
+7. Sair do docker
+
+    ```sh
+    exit
+    ```
+
+8.  Busca pelos campos **name** e category: 
 
     ```sh
     curl --request GET \
@@ -69,7 +75,7 @@
     --header 'Accept: application/json' | json_pp
     ```
 
-8.  Busca pelos campos name e **category**:
+9.  Busca pelos campos name e **category**:
 
     ```sh
     curl --request GET \
@@ -77,7 +83,7 @@
     --header 'Accept: application/json' | json_pp
     ```
 
-9.  Busca por uma categoria específica:
+10. Busca por uma categoria específica:
 
     ```sh
     curl --request GET \
@@ -85,7 +91,7 @@
     --header 'Accept: application/json' | json_pp
     ```
 
-10. Busca de produtos com imagem:
+11. Busca de produtos com imagem:
 
     ```sh
     curl --request GET \
@@ -93,7 +99,7 @@
     --header 'Accept: application/json' | json_pp
     ```
 
-11. Buscar um produto pelo seu ID único:
+12. Buscar um produto pelo seu ID único:
 
     ```sh
     curl --request GET \
@@ -101,7 +107,7 @@
     --header 'Accept: application/json' | json_pp
     ```
 
-12. Criar produto:
+13. Criar produto:
 
     ```sh
     curl --request POST \
@@ -117,7 +123,7 @@
     }' | json_pp
     ```
 
-13. Atualizar produto: 
+14. Atualizar produto: 
 
     ```sh
     curl --request PUT \
@@ -129,7 +135,7 @@
     }' | json_pp
     ```
 
-14. Deletar produto: 
+15. Deletar produto: 
 
     ```sh
     curl --request DELETE \
@@ -137,11 +143,11 @@
     --header 'Accept: application/json'
     ```
 
-15. Listar todos os produtos: 
+16. Listar todos os produtos: 
 
     ```sh
-    curl --request DELETE \
+    curl --request GET \
     --url http://localhost:8000/api/v1/products?limit=20 \
-    --header 'Accept: application/json'
+    --header 'Accept: application/json'  | json_pp
     ```
 
