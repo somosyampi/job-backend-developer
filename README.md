@@ -29,6 +29,12 @@
     cp .env.example .env
     ```
 
+1. Monta o container: 
+
+    ```sh
+    docker-compose up -d
+    ```
+
 2. Acesse o container: 
    
     ```sh
