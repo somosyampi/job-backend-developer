@@ -7,8 +7,10 @@ use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Services\ProductService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
 {
@@ -19,22 +21,22 @@ class ProductController extends Controller
         $this->service = app(ProductService::class);
     }
 
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
         return ProductResource::collection(Product::all());
     }
 
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request): JsonResponse|ProductResource
     {
         return $this->service->storeService($request->all());
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product): JsonResponse|ProductResource
     {
         return $this->service->updateService($request->all(), $product);
     }
 
-    public function destroy(Product $product)
+    public function destroy(Product $product): JsonResponse
     {
         $product->delete();
 
