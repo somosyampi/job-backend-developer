@@ -19,7 +19,7 @@
 - [x] Busca por uma categoria específica
 - [x] Busca de produtos com e sem imagem
 - [x] Buscar um produto pelo seu ID único
-- [ ] Revisão
+- [x] Revisão
 
 ## Testar aplicação
 
@@ -151,3 +151,10 @@
     --header 'Accept: application/json'  | json_pp
     ```
 
+*** 
+
+Muito obrigado pela oportunidade. 
+
+Tentei ao máximo seguir os padrões utilizados em [https://docs.yampi.com.br/](https://docs.yampi.com.br/)
+
+Qualquer dúvida estarei a disposição 🤙
