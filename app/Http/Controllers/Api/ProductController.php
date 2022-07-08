@@ -21,8 +21,12 @@ class ProductController extends Controller
         $this->service = app(ProductService::class);
     }
 
-    public function index(): AnonymousResourceCollection
+    public function index(Request $request): AnonymousResourceCollection|JsonResponse|ProductResource
     {
+        if(! empty($request->query())) {
+            return $this->service->searchProduct($request->query());
+        }
+
         return ProductResource::collection(Product::all());
     }
 
