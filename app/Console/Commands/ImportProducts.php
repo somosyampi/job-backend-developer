@@ -14,7 +14,7 @@ class ImportProducts extends Command
      *
      * @var string
      */
-    protected $signature = 'import:products {id?}';
+    protected $signature = 'import:products {--id=?}';
 
     /**
      * The console command description.
@@ -30,15 +30,14 @@ class ImportProducts extends Command
      */
     public function handle()
     {
-        $response = Http::get('https://fakestoreapi.com/products/'. $this->argument('id'));
+        $response = Http::get('https://fakestoreapi.com/products/'. $this->option('id'));
 
         if($response->failed()) {
             $this->info('Houve algum erro ao tentar buscar pela api ');
         }
 
-        $object = $response->object();
-        if(! $this->argument('id')) {
-            foreach($object as $data) {
+        if('?' == $this->option('id')) {
+            foreach($response->object() as $data) {
                 if(Product::where('name', $data->title)->exists()) {
                     continue;
                 }
@@ -51,11 +50,12 @@ class ImportProducts extends Command
         }
 
 
-        $data = $this->createData($object);
+        $data = $this->createData(json_decode($response->body()));
         (new ProductRepository())->insertData($data);
 
         $this->info('Produto cadastro com sucesso');
         return 1;
+
     }
 
     private function createData(object $data): array
