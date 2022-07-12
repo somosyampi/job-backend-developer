@@ -19,6 +19,7 @@ Dentro do container rode o seguinte comando para gerar a nova tabela no banco
 ## Endpoints:
 
 1) Criação:
+
     1) ```POST``` - ```/api/product```
          ```
           {
@@ -30,6 +31,7 @@ Dentro do container rode o seguinte comando para gerar a nova tabela no banco
          ``` 
 
 2) Atualização: 
+
     1) ```PUT``` - ```/api/product/{id}```
          ```
           {
