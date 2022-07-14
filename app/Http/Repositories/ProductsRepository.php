@@ -37,8 +37,6 @@ class ProductsRepository
         }
 
         return $query->get();
-
-        // return $products;
     }
 
     public function store($data)

@@ -8,11 +8,11 @@ use Illuminate\Http\{
 };
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\ProductsRepository;
-use App\Http\Requests\{
+use App\Http\Requests\Products\{
     ProductsStoreRequest,
     ProductsUpdateRequest,
 };
-use App\Http\Resources\ProductsResource;
+use App\Http\Resources\Products\ProductsResource;
 use App\Models\Products;
 
 class ProductsController extends Controller
