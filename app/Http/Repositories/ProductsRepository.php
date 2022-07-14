@@ -65,12 +65,13 @@ class ProductsRepository
         return false;
     }
 
-    public function update($data, $product)
+    public function update($data, $id)
     {
         try {
             DB::beginTransaction();
 
-            $product->update($data);
+            $product = Products::findOrFail($id);
+            $product->fill($data);
             DB::commit();
 
             return $product;
@@ -80,11 +81,12 @@ class ProductsRepository
         }
     }
 
-    public function destroy($product)
+    public function destroy($id)
     {
         try {
             DB::beginTransaction();
 
+            $product = Products::findOrFail($id);
             $product->delete();
             DB::commit();
 

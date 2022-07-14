@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\v1;
 
+use App\Http\Controllers\Controller;
+use App\Http\Repositories\ProductsRepository;
+use App\Http\Resources\Products\ProductsResource;
 use Illuminate\Http\{
     Request,
     Response
 };
-use App\Http\Controllers\Controller;
-use App\Http\Repositories\ProductsRepository;
 use App\Http\Requests\Products\{
     ProductsStoreRequest,
     ProductsUpdateRequest,
 };
-use App\Http\Resources\Products\ProductsResource;
-use App\Models\Products;
 
 class ProductsController extends Controller
 {
@@ -58,9 +57,9 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductsUpdateRequest $request, Products $product)
+    public function update(ProductsUpdateRequest $request, $id)
     {
-        $response = $this->repository->update($request->validated(), $product);
+        $response = $this->repository->update($request->validated(), $id);
 
         return response()->json([
             'error'   => !$response,
@@ -75,9 +74,9 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $product)
+    public function destroy($id)
     {
-        $response = $this->repository->destroy($product);
+        $response = $this->repository->destroy($id);
 
         return response()->json([
             'error'   => !$response,
